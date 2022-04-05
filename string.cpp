@@ -32,6 +32,9 @@ void printString(char *ch){
 	}
 }
 
+/**
+ * NOTE: This algorithm fails if the given pattern does not match  
+ */
 int bruteSearch(char *p, char *a){
 	int i = 0, j = 0,k=1;
 	int M = strlen(p);
