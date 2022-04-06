@@ -32,15 +32,25 @@ void printString(char *ch){
 	}
 }
 
-
-
 int bruteSearch(char *p, char *a){
 	/*
 	The program keep one pointer (i) into the text and another pointer(j) into the pattern.
 	As long as they point to matching characters both pointers are incremented. If i and j point to mismatching characters, then j is reset to point to the begining of the pattern and i is reset to correspond to moving the pattern to the right one position formatching against the text.
 	In particulat, whenever the first interation of the while loop sets j = 0, then subsequent interation increment i until a test character matching the first character is encountered.
 	If the end of the pattern is reached i.e j is equal to M(the length of the pattern), then there is a match starting at a[i-M]; otherwise, if the end of the text is reached before the end of the pattern is ever reached i.e. i is equal to N(the length of the string), there is no match and -1 is returned.
-	
+
+	Using Set theory:
+	Let S be a set of n elements; the elements maintain the following order x1,x2,...,xi,x(i+1),...,xn i.e. an item with
+	index i (e.g. xi) can sit next to another item only if the item has the index i-1 (e.g. x(i-1)).
+	Let U be a class that contains all the sets denoted by aj and the set aj has the following property:
+	aj is a subset of S
+	aj has exactly m items and m <= n
+	All the items of aj follow the given order
+
+	Question: How many elemets does the class U has?  n-m+1 elements
+
+	So the time-complexity of the worst case scenario is O(nm)[ (n-m+1)m = nm-m^2+1 = O(nm) as m <= n]
+
 	*/
 	int i = 0, j = 0,k=1;
 	int M = strlen(p);
